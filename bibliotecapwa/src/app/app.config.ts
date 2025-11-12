@@ -9,8 +9,20 @@ import { environment } from '../environments/environment';
 import { provideAuth } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
 import { provideServiceWorker } from '@angular/service-worker';
+
+//para estilos
+import { provideToastr } from 'ngx-toastr'; 
+import { provideAnimations } from '@angular/platform-browser/animations'; 
+
+
+
 export const appConfig: ApplicationConfig = {
   providers: [
+    //para estilos
+    provideToastr(), 
+    provideAnimations(), 
+
+
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes),
@@ -23,6 +35,15 @@ export const appConfig: ApplicationConfig = {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:30000'
     }), provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          }), provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          }), provideServiceWorker('ngsw-worker.js', {
+            enabled: !isDevMode(),
+            registrationStrategy: 'registerWhenStable:30000'
+          }), provideServiceWorker('ngsw-worker.js', {
             enabled: !isDevMode(),
             registrationStrategy: 'registerWhenStable:30000'
           })
